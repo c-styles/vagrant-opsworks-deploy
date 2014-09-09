@@ -1,0 +1,16 @@
+{
+  "name": "php-web-server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "run_list": [
+    "recipe[opsworks-custom-cookbooks::update-repository]",
+    "recipe[opsworks-custom-cookbooks::apache2-preinstall]",
+    "recipe[opsworks-custom-cookbooks::imagemagick-setup]",
+    "recipe[mod_php5_apache2]"
+  ],
+  "description": "",
+  "override_attributes": {
+  }
+}

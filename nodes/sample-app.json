@@ -1,0 +1,32 @@
+{
+  "name" : "sample-app",
+  "fqdn" : "sample-app.example.com",
+  "box" : "chef/ubuntu-14.04",
+  "ipaddress" : "192.168.34.11",
+  "environment":"development",
+  "run_list":[
+    "role[php-web-server]",
+    "recipe[opsworks-custom-cookbooks::webmin-setup]"
+  ],
+  "deploy" : {
+    "sample-app" : {
+      "application" :"sample-app",
+      "application_type" : "php",
+      "database":{
+        "type": ""
+      },
+      "auto_bundle_on_deploy" : false,
+      "ssl_support" : false,
+      "domains" : [
+        "sample-app.example.com"
+      ],
+      "environment_variables" : {
+        "HOSTNAME" : "sample-app.example.com"
+      },
+      "document_root" : "",
+      "stack" : {
+        "need_reload" : false
+      }
+    }
+  }
+}
